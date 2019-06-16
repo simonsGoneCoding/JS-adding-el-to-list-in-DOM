@@ -1,8 +1,15 @@
 const form = document.querySelector('form');
 const ul = document.querySelector('ul');
 const taskNumber = document.querySelector('span');
-const listItems = document.querySelectorAll('li');
+const listItems = document.getElementsByClassName('task');
 const input = document.querySelector('input')
+
+const removeTask = (e) => {
+  e.target.parentNode.remove();
+  taskNumber.textContent = ' ' + listItems.length;
+}
+
+
 
 const addTask = () => {
   event.preventDefault()
@@ -17,9 +24,9 @@ const addTask = () => {
     input.value = '';
     // const liItems = document.querySelectorAll('li').length;
     // taskNumber.textContent = ' ' + liItems;
-    taskNumber.textContent = listItems;
+    taskNumber.textContent = ' ' + listItems.length;
+    task.querySelector('button').addEventListener('click', removeTask)
   }
 }
-
 
 form.addEventListener('submit', addTask)
